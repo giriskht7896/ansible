@@ -7,4 +7,4 @@
     ansible.builtin.debug:
       msg: "hello {{NAME}}"
 
-    when: {{NAME}} == " DevOps "
+    when: NAME ==  "DevOps" 
