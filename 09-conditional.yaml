@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
   - name: check roboshop user exists or not
-    ansible.buitin.command: id roboshop
+    ansible.builtin.command: id roboshop
     register: output
     ignore_errors: true
   
