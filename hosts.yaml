@@ -1,0 +1,6 @@
+- name: vars from hosts
+  hosts: user
+  tasks:
+  - name: print username
+    ansible.builtin.debug:
+      msg: username is {{USER_NAME}} and userdb is {{USER_DB}}
