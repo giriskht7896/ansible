@@ -7,7 +7,7 @@
     ansible.builtin.yum:
      name: nginx
      state: latest
-  - name: Start service nginx, if not started
+  - name: Start service nginx
     ansible.builtin.service:
       name: nginx
       state: started
