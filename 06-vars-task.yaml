@@ -14,3 +14,4 @@
       car: " 2 cars"
     ansible.builtin.debug:
       msg: "money: {{money}}, land: {{land}}, car {{car}}"
+
