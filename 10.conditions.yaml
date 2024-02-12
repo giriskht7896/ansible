@@ -1,0 +1,10 @@
+- name:
+  hosts: localhost
+  vars: 
+    NAME: DevOps
+  tasks:
+  - name: run the task if name is DevOps
+    ansible.builtin.debug:
+      msg: "hello {{NAME}}"
+
+    when: {{NAME}} == " DevOps "
