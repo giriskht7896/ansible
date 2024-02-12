@@ -1,0 +1,13 @@
+- name:
+  hosts: localhost
+  # vars: 
+  #   NAME: roboshop1
+  tasks:
+  - name: check username present or not
+    ansible.builtin.getent: 
+      database: passwd
+      key: roboshop
+      register: output
+  - name: display the user
+    ansible.builtin.debug:
+      msg: output is  {{output}}
