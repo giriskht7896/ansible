@@ -2,10 +2,11 @@
   hosts: user
   become: yes  
   tasks:
-  - name: install packages
+  - name: install and remove packages
     ansible.builtin.yum:
       name: "{{item.name}}"
       state: "{{item.state}}"
+    # list of map
     loop:
     - {name: 'nginx', state: 'present'}
     - {name: 'postfix', state: 'absent'}
