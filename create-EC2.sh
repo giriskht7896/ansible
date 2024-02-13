@@ -11,9 +11,9 @@ for i in $@
 do
     if [[  $i == "mongodb" ||  $i == "mysql" ]];
     then 
-    INSTANCE_TYPE="t3.medium"
+        INSTANCE_TYPE="t3.medium"
     else
-    INSTANCE_TYPE="t2.micro"
+        INSTANCE_TYPE="t2.micro"
     fi
     echo "creating $i instance"
 
