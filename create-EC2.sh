@@ -9,7 +9,7 @@ HOSTED_ZONE=Z01278211VH22AL56K3B8
 
 for i in $@
 do
-    if [[ $i == "mongodb" || $i == "mysql"]];
+    if [[  $i == "mongodb" ||  $i == "mysql" ]];
     then 
     INSTANCE_TYPE="t3.medium"
     else
