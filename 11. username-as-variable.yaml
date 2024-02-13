@@ -8,6 +8,8 @@
       database: passwd
       key: roboshop
       register: output
+
   - name: display the user
     ansible.builtin.debug:
       msg: output is  {{output}}
+
