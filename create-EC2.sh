@@ -17,22 +17,22 @@ do
     fi
     echo "creating $i instance"
 
-    IP_Address=$(aws ec2 run-instances --image-id $IMAGE_ID --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instances[0].PrivateIpAddress')
+    IP_Address=$(aws ec2 run-instances --image-id $IMAGE_ID --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP  --tag-specifications 'ResourceType=instance,Tags=[{key=Name,Value=$i}]' |  jq -r '.instances[0].PrivateIpAddress')
     echo "created $i instance: $IP_Address"
 
-    # aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE --change-batch '
-    # {
-    #             "Comment": "Testing creating a record set",
-    #             "Changes": [{
-    #                 "Action": "CREATE",
-    #                 "ResourceRecordSet": {
-    #                 "Name": "'$i.devopsskht.xyz'",
-    #                 "Type": "A",
-    #                 "TTL": 300,
-    #                 "ResourceRecords": [{ "Value": "$IP_Address" }]
-    #             }}]
-    # }
-    # '
+    aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE --change-batch '
+    {
+                "Comment": "Testing creating a record set",
+                "Changes": [{
+                    "Action": "CREATE",
+                    "ResourceRecordSet": {
+                    "Name": "'$i.devopsskht.xyz'",
+                    "Type": "A",
+                    "TTL": 300,
+                    "ResourceRecords": [{ "Value": "$IP_Address" }]
+                }}]
+    }
+    '
 
 
 done 
